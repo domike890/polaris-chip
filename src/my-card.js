@@ -15,6 +15,8 @@ export class MyCard extends LitElement {
   constructor() {
     super();
     this.title = "My card";
+    this.imageLink = null;
+    this.description = "description";
   }
 
   static get styles() {
@@ -26,12 +28,14 @@ export class MyCard extends LitElement {
   }
 
   render() {
-    return html`<div>${this.title}</div>`;
+    return html`<div>${this.title}<img src="${this.imageLink}">${this.description}</div>`;
   }
 
   static get properties() {
     return {
       title: { type: String },
+      imageLink: { type: String, attribute: "image-link" },
+      description: { type: String}
     };
   }
 }
