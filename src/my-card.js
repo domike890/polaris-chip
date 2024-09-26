@@ -17,6 +17,8 @@ export class MyCard extends LitElement {
     this.title = "My card";
     this.imageLink = null;
     this.description = "description";
+    this.link = "Link";
+    this.buttontext = "button text";
   }
 
   static get styles() {
@@ -24,18 +26,47 @@ export class MyCard extends LitElement {
       :host {
         display: block;
       }
+      img {
+        max-width: 390px;
+         width: 100%;
+         margin: auto;
+        }
+      div{
+        border: solid black 8px;
+        margin: 64px;
+        padding: 16px;
+        max-width: 400px;
+        width: auto;
+        border-radius: 16px;
+      }
+        a {
+        border-radius: 8px;
+        font-size: 16px;
+        border-style: none;
+        background-color: #220d5d;
+        color: white;
+        padding: 8px;
+        font-weight: bold;
+        text-decoration: none;
+      }
+      a:hover {
+        background-color: #f0e68c;
+        color: white;
+      }
     `;
   }
 
   render() {
-    return html`<div>${this.title}<img src="${this.imageLink}">${this.description}</div>`;
+    return html`<div><img src="${this.imageLink}"><h2>${this.title}</h2><p>${this.description}</p><a href='${this.link}'>${this.buttontext}</a></div>`;
   }
 
   static get properties() {
     return {
       title: { type: String },
       imageLink: { type: String, attribute: "image-link" },
-      description: { type: String}
+      description: { type: String},
+      link: { type: String},
+      buttontext: { type: String}
     };
   }
 }
